@@ -1,0 +1,102 @@
+<div class="jumbotron header text-center" style="padding:30px">
+    <!-- Heading -->
+    <h1 class="display-5">A Discussion Forum and Chat Application</h1>
+    <p class="lead">Welcome to TheOnlineForum, a discussion site built using Mean stack where users can share posts and chat online.</p>
+    <hr class="my-4">
+
+    <div class="container">
+      <div class="row">
+        <!-- User info Region-->
+        <div class="col-lg-4">
+          <h2 class="text-light" style="text-shadow:1.5px 1.5px black;">User Info</h2>
+          <div class="jumbotron bg-info text-dark" align="center" *ngIf='user' style="height:260px;overflow:hidden;padding:20px;">
+            <img src="../../../assets/logo.png" width="50" height="50">
+            <hr class="my-4">
+            <p>USERNAME: <em>{{user.username}}</em></p>
+            <p>NAME: <em>{{user.name}}</em></p>
+            <p>EMAIL: <em>{{user.email}}</em></p>
+          </div>
+        </div>
+        <!-- Create Post region-->
+        <div class="col-lg-8">
+          <h2 class="text-light" style="text-shadow:1.5px 1.5px black;">Create Post</h2>
+          <form (submit)="createPost()">
+            <div class="form-group">
+              <input name='title' type="text" class="form-control" placeholder="Post Title" [(ngModel)]="title">
+            </div>
+            <div class="form-group">
+              <textarea name="info" class="form-control" rows="8" cols="80" placeholder="Post Description" [(ngModel)]="info"></textarea>
+            </div>
+            <div align="right">
+              <input type="submit" name="Post" class="btn btn-info" value="Post" style="margin:5px">
+              <input (click)="updatePost()" type="button" name="Update" class="btn btn-success" value="Update" style="margin:5px">
+            </div>
+          </form>
+        </div>
+
+        <!-- Show Posts-->
+        <h2 class="text-light" align="center" style="text-shadow:1.5px 1.5px black;">Browse Posts</h2>
+        <div class="card-columns">
+  				<div *ngFor= "let post of posts">
+  					<div class="card bg-primary mb-3" style="max-width: 25rem;">
+  						<div class="card-body">
+                <h6 class="card-header text-dark" align="left">
+                  Posted by: {{post.op}}
+                  <button style="margin-left:1em;" class="btn btn-primary btn-sm" (click)="openUserInChat(post.op)">[open chat]</button>
+                  <button (click)="deletePost(post)" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </h6>
+        				<h4 class="card-title text-dark" style="margin-top:15px;">
+                    {{post.title}}
+  								<em>
+                    <h6 class="text-dark">
+                      Posted on:  {{post.posted}}
+                      <button (click)="getPostToEdit(post)" class="btn btn-primary btn-sm">EDIT</button>
+                    </h6>
+                  </em>
+  							</h4>
+                <hr class="my-4">
+        			  <p class="card-text text-dark">
+  							  {{post.info}}
+  						  </p>
+      				</div>
+    				</div>
+  				</div>
+  			</div>
+
+      </div>
+    </div>
+
+    <!-- chat box pop up-->
+    <button class="open-button" (click)="openForm()">Chat</button>
+    <div class="chat-popup" id="myForm">
+      <!-- users chat list -->
+      <div class="form-container1 list-group">
+        <li class="btn">USERS</li>
+        <ul *ngFor= "let item of usersList">
+          <button class="btn btn-primary" (click)="openUserInChat(item.username)" style="margin-right:20px;">{{item.username}}</button>
+        </ul>
+
+      </div>
+      <div class="form-container">
+        <h2>Chat</h2>
+        <label for="msg"><b>Messages</b></label>
+        <div class="row">
+            <div class="well" id="allMessages" align="left" style="height:200px; padding:15px; width:270px ;background-color:#D9D9D9; margin-left:20px; word-wrap:break-word; overflow:auto;">
+                <div style="margin-bottom:10px;">
+                <div *ngFor="let item of messageArray">
+                <span><strong>{{item.user}} : </strong> {{item.message}}</span>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div align="left" style="margin-top:5px"><strong>To: {{targetUsername}}</strong></div>
+        <textarea (keydown.Enter)="onKeydown()" [(ngModel)]="messageText" name="messageText" placeholder="Type message.." id="message" required></textarea>
+        <button type="button" (click)="sendMessage()" class="btn">send</button>
+
+        <button type="button" class="btn" id="offlineToggle" (click)="toggleStatus()" style="margin-left:4px;">Online</button>
+        <button type="button" class="btn cancel" (click)="closeForm()">close</button>
+      </div>
+    </div>
+
+</div>
