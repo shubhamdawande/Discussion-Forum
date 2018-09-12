@@ -1,11 +1,13 @@
-###### Readme ######
+## Readme
 
-### About ###
+### About 
 
-This is a dicussion forum with all the required functionalities like sharing, editing posts and chat with other users online
-Implemented using MEAN Stack(Mongodb, Express, Angular & Node) and Websockets
+This is a dicussion forum with all the required functionalities such as user profile creation, browing/sharing posts and chat with other users online.
+Implemented using MEAN Stack(Mongodb, Express, Angular & Node) and Websockets.
 
-### How to run the project ###
+Try it out at https://theonlineforum.herokuapp.com
+
+### How to run the project
 
 1. Git Clone repository
 2. Execute 'npm install' to install all node dependencies

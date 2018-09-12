@@ -2,3 +2,5 @@
 
 # Dependency directory
 angular-src/node_modules
+node_modules
+config/database.js
