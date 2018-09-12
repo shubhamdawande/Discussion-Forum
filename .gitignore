@@ -1,0 +1,4 @@
+#### node #####
+/node_modules
+/angular-src/node_modules
+/config/database.js
