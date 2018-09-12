@@ -2,7 +2,7 @@
 
 ### About 
 
-This is a dicussion forum with all the required functionalities such as user profile creation, browing/sharing posts and chat with other users online.
+This is a discussion forum with all the required functionalities such as user profile creation, browing/sharing posts and chat with other users online.
 Implemented using MEAN Stack(Mongodb, Express, Angular & Node) and Websockets.
 
 Try it out at https://theonlineforum.herokuapp.com
