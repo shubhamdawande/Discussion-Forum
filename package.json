@@ -1,0 +1,24 @@
+{
+  "name": "mean-stack-app",
+  "version": "1.0.0",
+  "description": "A forum app built using mean stack",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "bcrypt": "*",
+    "bluebird": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "*",
+    "socket.io": "^2.1.1"
+  },
+  "author": "shubham",
+  "license": "ISC"
+}
